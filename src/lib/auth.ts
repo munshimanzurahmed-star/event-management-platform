@@ -39,6 +39,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           where: { email: credentials.email as string },
         });
 
+        // User model has no isActive field — only require passwordHash
         if (!user || !user.passwordHash) return null;
 
         const valid = await bcrypt.compare(
