@@ -1,8 +1,9 @@
-export default async function TicketPage({
-  params,
-}: {
+type TicketPageProps = {
   params: Promise<{ token: string }>;
-}) {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+};
+
+export default async function TicketPage({ params }: TicketPageProps) {
   const { token } = await params;
 
   return (
