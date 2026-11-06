@@ -1,10 +1,8 @@
-type TicketPageProps = {
+export default async function TicketPage(props: {
   params: Promise<{ token: string }>;
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
-};
-
-export default async function TicketPage({ params }: TicketPageProps) {
-  const { token } = await params;
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
+}) {
+  const { token } = await props.params;
 
   return (
     <main className="flex min-h-screen items-center justify-center bg-brand-dark px-6">
